@@ -3,6 +3,7 @@ package org.inria.restlet.mta.resources;
 import objects.Requin;
 import objects.Zone;
 import org.inria.restlet.mta.backend.Backend;
+import org.json.JSONException;
 import org.json.JSONObject;
 import org.restlet.ext.json.JsonRepresentation;
 import org.restlet.resource.Get;
@@ -20,25 +21,27 @@ public class RequinResource extends ServerResource {
     }
 
     @Get("json")
-    public JsonRepresentation getRequin(){
+    public JsonRepresentation getRequin() throws JSONException {
 
-        String sharkId = (String) getRequest().getAttributes().get("sharkd");
+        String sharkId = (String) getRequest().getAttributes().get("shark_id");
         int requinId = Integer.valueOf(sharkId);
         requin = backend_.getDatabase().getSharks(requinId);
 
 
 
-        JSONObject userObject = new JSONObject();
+        JSONObject requinObject = new JSONObject();
         //userObject.put("CycloVieRequin", Requin.CycloVieRequin);
        // userObject.put("Status_Vie_Req", requin.getStatus_Vie_Req());
-       /* userObject.put("requinsmort", requin.getId());
-        userObject.put("Poisson_requin", requin.getId());
-        userObject.put("positionI", requin.getPositionI());
-        userObject.put("positionJ", requin.getPositionJ());
-        */
+        if(requin != null){
+            requinObject.put("requinsmort", requin.getId());
+            requinObject.put("Poisson_requin", requin.getId());
+            requinObject.put("positionI", requin.getPositionI());
+            requinObject.put("positionJ", requin.getPositionJ());
+        }
 
 
-        return new JsonRepresentation(true);
+
+        return new JsonRepresentation(requinObject);
     }
 
 

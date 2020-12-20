@@ -26,7 +26,7 @@ public class MyApplication extends Application
     public Restlet createInboundRoot()
     {
         Router router = new Router(getContext());
-        router.attach("/sharks", RequinResource.class);
+        router.attach("/sharks/{shark_id}", RequinResource.class);
         return router;
     }
 }

@@ -16,7 +16,7 @@ public class Requin extends Thread {
 
 
     int id = 0;
-    static int NEXT_ID = 1;
+    public static int NEXT_ID = 1;
 
     public long getId() {
         return id;

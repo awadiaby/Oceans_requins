@@ -25,7 +25,7 @@ public interface Database
      * @param age       The age of the user
      * @return  the new user.
      */
-    User createUser(String name, int age);
+    //User createUser(String name, int age);
 
 
     /**
@@ -34,7 +34,7 @@ public interface Database
      *
      * @return the list of users
      */
-    Collection<User> getUsers();
+    //Collection<User> getUsers();
 
 
     /**
@@ -42,7 +42,7 @@ public interface Database
      *
      *  @return the user
      */
-    User getUser(int id);
+    //User getUser(int id);
 
 
 
