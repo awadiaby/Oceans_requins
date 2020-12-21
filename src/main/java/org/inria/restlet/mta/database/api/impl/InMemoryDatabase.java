@@ -12,8 +12,8 @@ import org.inria.restlet.mta.internals.User;
  *
  * In-memory database 
  *
- * @author ctedeschi
- * @author msimonin
+ * @author Awa Diaby
+ * @author KArla Rosas
  *
  */
 public class InMemoryDatabase implements Database
@@ -33,9 +33,9 @@ public class InMemoryDatabase implements Database
    // Map<Integer, User> users_;
 
 
-  //  public InMemoryDatabase()
+    public InMemoryDatabase()
     {
-      //  users_ = new HashMap<Integer, User>();
+        ocean = new Zone[N][N];
     }
 
     /*@Override
@@ -82,15 +82,23 @@ public class InMemoryDatabase implements Database
     }
 
     @Override
-    public void postSharks(Requin sharks) {
-        int i = (int) Math.random() * N;
-        int j= (int) Math.random() * N;
+    public Requin postSharks(Requin sharks) {
+        int i = (int) (Math.random() * N);
+        int j= (int) (Math.random() * N);
+
+        while(ocean[i][j]!=null){
+            i = (int) (Math.random() * N);
+            j= (int) (Math.random() * N);
+        }
         sharks.setPositionI(i);
         sharks.setPositionJ(j);
         sharks.setId(Requin.NEXT_ID++);
         requins.add(sharks);
 
-        ocean[i][j].setRequinPresent(sharks);
+        Zone zone = new Zone(i,j);
+        zone.setRequinPresent(sharks);
+        ocean[i][j] = zone;
+        return sharks;
     }
 
     @Override
@@ -118,6 +126,11 @@ public class InMemoryDatabase implements Database
             }
         }
         return countSardine;
+    }
+
+    @Override
+    public List<Requin> getSharks() {
+        return this.requins;
     }
 
 }

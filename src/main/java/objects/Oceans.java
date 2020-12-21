@@ -13,7 +13,7 @@ public class Oceans {
     static final int N = 3;
     static final int MAX_REQUINS = 5;
     static final int MAX_POISSON_PILOTES = 30;
-    private Zone[][] ocean = new Zone[N][N];
+    public static Zone[][] ocean = new Zone[N][N];
     private Requin[] requins = new Requin[MAX_REQUINS];
     private PoissonPilotes[] poissonpilotes = new PoissonPilotes[MAX_POISSON_PILOTES];
     private int ligne, colonne, nb_requins;

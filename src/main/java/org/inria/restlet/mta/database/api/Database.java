@@ -11,7 +11,7 @@ import org.inria.restlet.mta.internals.User;
  *
  * Interface to the database.
  *
- * @author msimonin
+ * @author Awa and KArla
  *
  */
 public interface Database
@@ -48,9 +48,11 @@ public interface Database
 
 
     public Zone getZoneInfo(int id);
-    public void postSharks(Requin sharks);
+    public Requin postSharks(Requin sharks);
     public int getSharksCount();
     public Requin getSharks(int shark_id);
     public int getTunas();
+
+    public List<Requin> getSharks();
 
 }

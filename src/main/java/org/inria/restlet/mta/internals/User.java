@@ -4,10 +4,10 @@ import java.util.ArrayList;
 
 /**
  *
- * User
+ * Requins
  *
- * @author ctedeschi
- * @author msimonin
+ * @author Awa Diaby
+ * @author Karla Rosas
  *
  */
 public class User

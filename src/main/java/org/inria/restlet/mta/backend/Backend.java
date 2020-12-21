@@ -7,8 +7,8 @@ import org.inria.restlet.mta.database.api.impl.InMemoryDatabase;
  *
  * Backend for all resources.
  * 
- * @author ctedeschi
- * @author msimonin
+ * @author Awa Diaby
+ * @author Karla Rosas
  *
  */
 public class Backend
